@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "725219948195",
+    "firebase_url": "https://provafinale-f0d57.firebaseio.com",
+    "project_id": "provafinale-f0d57",
+    "storage_bucket": "provafinale-f0d57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725219948195:android:1f7e897672e2cfc0",
+        "android_client_info": {
+          "package_name": "com.example.utente5academy.prova_finale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725219948195-1b8os3401n4stbdqi1lv1hk8aqhdn8dd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.utente5academy.prova_finale",
+            "certificate_hash": "84b35cd7940c0852bd0ea1813e10ccb6cdb292a7"
+          }
+        },
+        {
+          "client_id": "725219948195-ihp1vd6pjq8c3i7irat40ogf84ukaqj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHTPjKlmYjKZTvd03YDWQa3cVqYQam250"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725219948195-ihp1vd6pjq8c3i7irat40ogf84ukaqj8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725219948195:android:1a640724fc0359da",
+        "android_client_info": {
+          "package_name": "com.example.utente5academy.provafinale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725219948195-6g5lu5lfisl4mmnirte8sllpdihmtuq9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.utente5academy.provafinale",
+            "certificate_hash": "84b35cd7940c0852bd0ea1813e10ccb6cdb292a7"
+          }
+        },
+        {
+          "client_id": "725219948195-ihp1vd6pjq8c3i7irat40ogf84ukaqj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHTPjKlmYjKZTvd03YDWQa3cVqYQam250"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725219948195-ihp1vd6pjq8c3i7irat40ogf84ukaqj8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

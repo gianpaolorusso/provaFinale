@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.example.utente5academy.provafinale.activitys.RegistrationActivity">
+
+    <TextView
+        android:id="@+id/titolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:text="Pagina di registrazione"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titolo"
+        android:layout_centerHorizontal="true"
+        android:text="Tipo utente" />
+
+    <Spinner
+        android:layout_margin="5dp"
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tipo"
+        android:layout_centerHorizontal="true"></Spinner>
+c
+    <TextView
+        android:id="@+id/textUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:text="Username per l'accesso" />
+
+    <EditText
+        android:id="@+id/edUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textUsername"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:hint="Username" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edUsername"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:text="Password per l'accesso" />
+
+    <EditText
+        android:id="@+id/testoPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:hint="Password" />
+
+    <Button
+        android:id="@+id/bRegistra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/testoPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:text="Registrati" />
+</RelativeLayout>

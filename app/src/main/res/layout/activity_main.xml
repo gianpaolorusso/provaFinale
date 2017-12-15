@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.example.utente5academy.provafinale.MainActivity">
+
+    <TextView
+        android:id="@+id/txTipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Tipo di utente" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txTipo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp">
+
+    </Spinner>
+
+    <EditText
+        android:id="@+id/edUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:hint="username" />
+
+    <EditText
+
+        android:id="@+id/edPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edUsername"
+        android:layout_centerHorizontal="true"
+        android:hint="password" />
+
+    <RelativeLayout
+        android:id="@+id/preferencesLayout"
+        android:layout_width="160px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/check"
+
+
+            android:text="Ricorda" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/preferencesLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="LogIn" />
+
+    <TextView
+        android:id="@+id/testoRegistrazione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bLog"
+        android:layout_centerHorizontal="true"
+        android:text="Per registrarsi toccare " />
+
+    <TextView
+        android:id="@+id/registrazione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bLog"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/testoRegistrazione"
+        android:text="qui"
+        android:textSize="12sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/colorPrimary"
+        />
+
+</RelativeLayout>
