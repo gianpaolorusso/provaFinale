@@ -23,14 +23,15 @@ public class CourrierActivity extends TabActivity {
         spec.setIndicator("Conesgna");
         spec.setContent(new Intent(CourrierActivity.this, Tab1.class));
         tabHost.addTab(spec);
-        TabHost.TabSpec spec2 = tabHost.newTabSpec("Pacco");
+        TabHost.TabSpec spec2 = tabHost.newTabSpec("Lista");
         spec2.setIndicator("Pacchi");
         spec2.setContent(new Intent(CourrierActivity.this, Tab1.class));
         tabHost.addTab(spec2);
-        TabHost.TabSpec spec3 = tabHost.newTabSpec("Pacco");
+        TabHost.TabSpec spec3 = tabHost.newTabSpec("Stato");
         spec3.setIndicator("Stato pacco");
         spec3.setContent(new Intent(CourrierActivity.this, Tab1.class));
         tabHost.addTab(spec3);
+
 
 
     }

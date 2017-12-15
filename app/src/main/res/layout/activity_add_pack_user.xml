@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:gravity="center"
+    tools:context="com.example.utente5academy.provafinale.activitys.AddPackUser">
+
+    <EditText
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:id="@+id/indirizzoDestinazione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Indirizzzo destinazione" />
+
+    <EditText
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:id="@+id/destinatario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/indirizzoDestinazione"
+        android:hint="Destinatario" />
+
+    <RelativeLayout
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:id="@+id/layoutData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/destinatario">
+
+        <Spinner
+            android:id="@+id/spinnerGiorno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Spinner>
+
+        <Spinner
+            android:layout_toRightOf="@+id/spinnerGiorno"
+            android:id="@+id/spinneerMese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ></Spinner>
+
+        <Spinner
+            android:id="@+id/spinneerAnno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/spinneerMese"></Spinner>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:id="@+id/txDimensione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutData"
+        android:text="Dimensione" />
+
+    <Spinner
+        android:layout_centerHorizontal="true"
+        android:id="@+id/spinnerDimensione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txDimensione"
+        android:layout_margin="10dp"></Spinner>
+
+    <EditText
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/spinnerDimensione"
+        android:id="@+id/deposito"
+        android:hint="Indirizzo deposito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/deposito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spedisci"/>
+
+
+</RelativeLayout>

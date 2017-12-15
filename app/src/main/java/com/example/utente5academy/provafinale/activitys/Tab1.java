@@ -32,7 +32,7 @@ private String urlDb=null;
         giorno=(TextView)findViewById(R.id.giorno);
         SharedPreferences preferences=getSharedPreferences("",MODE_PRIVATE);
         String cod=preferences.getString("codice","cod");
-        urlDb="https://provafinale-f0d57.firebaseio.com/"
+        urlDb="https://provafinale-f0d57.firebaseio.com/";
         database=FirebaseDatabase.getInstance();
         reference=database.getReferenceFromUrl(urlDb);
 

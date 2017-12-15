@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.example.utente5academy.provafinale.activitys.CourrierActivity;
 import com.example.utente5academy.provafinale.activitys.RegistrationActivity;
 import com.example.utente5academy.provafinale.activitys.UserActivity;
+import com.example.utente5academy.provafinale.classe.Rest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,12 +36,14 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private TextView registrazion;
     private TextView tTipo;
+    private Rest rest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tTipo = (TextView) findViewById(R.id.txTipo);
+        rest = new Rest(getApplicationContext());
         preferences = getSharedPreferences("login", MODE_PRIVATE);
         editor = preferences.edit();
         String utente = preferences.getString("utente", "nessuno");
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             bLog = (Button) findViewById(R.id.bLog);
             ePassword = (EditText) findViewById(R.id.edPassword);
             eUsername = (EditText) findViewById(R.id.edUsername);
-            cbRicorda = (CheckBox) findViewById(R.id.checkbox);
+            cbRicorda = (CheckBox) findViewById(R.id.check);
             sTipoUtente = (Spinner) findViewById(R.id.spinner);
             String[] array = {"Corriere", "Utente"};
             ArrayAdapter adapter = new ArrayAdapter(getBaseContext(), R.layout.support_simple_spinner_dropdown_item, array);
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             bLog.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     tipo = sTipoUtente.getSelectedItem().toString();
                     if (cbRicorda.isChecked()) {
                         editor.putString("tipo", tipo);
@@ -78,75 +82,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if (eUsername.getText().toString().equals("")) {
                         Toast.makeText(getBaseContext(), "Inserire l'username", Toast.LENGTH_SHORT).show();
-                    } else if (ePassword.getText().toString().equals("")) {
+                    }
+                    if (ePassword.getText().toString().equals("")) {
                         Toast.makeText(getBaseContext(), "Inserire la password", Toast.LENGTH_SHORT).show();
                     } else {
-                        if (tipo != "tipo") {
-                            switching();
-                        }
+                        rest.LogIn(eUsername.getText().toString(), ePassword.getText().toString(),tipo);
                     }
                 }
             });
-        } else {
-            switching();
+
         }
-
-    }
-
-    private void switching() {
-        switch (tipo) {
-            case "Utente": {
-                Intent i = new Intent(MainActivity.this, UserActivity.class);
-                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
-                try {
-                    pendingIntent.send();
-                } catch (PendingIntent.CanceledException e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
-            case "Corriere": {
-                Intent i = new Intent(MainActivity.this, CourrierActivity.class);
-                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
-                try {
-                    pendingIntent.send();
-                } catch (PendingIntent.CanceledException e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
-        }
-
-    }
-
-    private void verificaDati(final String username, final String passwordUser) {
-        String url = "https://provafinale-f0d57.firebaseio.com/" + username + "/Password/";
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReferenceFromUrl(url);
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String password = dataSnapshot.getValue().toString();
-                if (password.equals(passwordUser)) {
-                    Intent i = new Intent(MainActivity.this, UserActivity.class);
-                    i.putExtra("username", username);
-                    PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
-                    try {
-                        pendingIntent.send();
-                    } catch (PendingIntent.CanceledException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Toast.makeText(getBaseContext(), "Dati per il log errati", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
     }
 }
