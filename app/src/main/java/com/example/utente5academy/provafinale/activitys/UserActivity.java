@@ -12,16 +12,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 @SuppressWarnings("deprecation")
 public class UserActivity extends TabActivity {
-    private FirebaseDatabase database;
-    private DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         this.setTitle("utente");
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("message");
         String username = getIntent().getStringExtra("username");
         TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
         tabHost.setup();
