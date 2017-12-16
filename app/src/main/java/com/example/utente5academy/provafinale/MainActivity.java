@@ -3,21 +3,8 @@ package com.example.utente5academy.provafinale;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.utente5academy.provafinale.activitys.CourrierActivity;
-import com.example.utente5academy.provafinale.activitys.RegistrationActivity;
-import com.example.utente5academy.provafinale.activitys.UserActivity;
-import com.example.utente5academy.provafinale.classe.Rest;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,6 +13,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.utente5academy.provafinale.activitys.CourrierActivity;
+import com.example.utente5academy.provafinale.activitys.RegistrationActivity;
+import com.example.utente5academy.provafinale.activitys.UserActivity;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,14 +36,12 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private TextView registrazion;
     private TextView tTipo;
-    private Rest rest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tTipo = (TextView) findViewById(R.id.txTipo);
-        rest = new Rest(getApplicationContext());
         client = new AsyncHttpClient();
         bLog = (Button) findViewById(R.id.bLog);
         ePassword = (EditText) findViewById(R.id.edPassword);

@@ -1,20 +1,13 @@
 package com.example.utente5academy.provafinale.activitys;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.utente5academy.provafinale.R;
 import com.example.utente5academy.provafinale.adapter.AdapterPacksList;
-import com.example.utente5academy.provafinale.classe.Rest;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -24,6 +17,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.naming.Context;
+
 import cz.msebera.android.httpclient.Header;
 
 /**
@@ -32,7 +27,6 @@ import cz.msebera.android.httpclient.Header;
 
 public class Tab1 extends Activity {
     private RecyclerView recyclerView;
-    private Rest rest;
     private String username;
     private ArrayList<String> lista;
     private String tipo;
@@ -44,14 +38,13 @@ public class Tab1 extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_tab1);
-        rest = new Rest(getApplicationContext());
         client = new AsyncHttpClient();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         username = getIntent().getStringExtra("username");
         tipo = getIntent().getStringExtra("tipo");
         lista = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        adapter = new AdapterPacksList(getBaseContext(), lista);
+        adapter = new AdapterPacksList((Context) getBaseContext(),lista);
         recyclerView.setAdapter(adapter);
         getPacchiCorriere(username, tipo);
 
