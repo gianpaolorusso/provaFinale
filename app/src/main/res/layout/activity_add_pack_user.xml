@@ -7,7 +7,13 @@
 android:gravity="center"
     tools:context="com.example.utente5academy.provafinale.activitys.AddPackUser">
 
+    <Spinner
+        android:layout_centerHorizontal="true"
+        android:id="@+id/spinnerCorrieri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Spinner>
     <EditText
+        android:layout_below="@+id/spinnerCorrieri"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:id="@+id/indirizzoDestinazione"
@@ -39,16 +45,16 @@ android:gravity="center"
 
         <Spinner
             android:layout_toRightOf="@+id/spinnerGiorno"
-            android:id="@+id/spinneerMese"
+            android:id="@+id/spinnerMese"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             ></Spinner>
 
         <Spinner
-            android:id="@+id/spinneerAnno"
+            android:id="@+id/spinnerAnno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/spinneerMese"></Spinner>
+            android:layout_toRightOf="@+id/spinnerMese"></Spinner>
     </RelativeLayout>
 
     <TextView
