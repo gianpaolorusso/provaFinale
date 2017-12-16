@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TabHost;
 
 import com.example.utente5academy.provafinale.R;
+import com.example.utente5academy.provafinale.service.ServiceCourrier;
 
 /**
  * Created by utente5.academy on 15/12/2017.
@@ -13,10 +14,13 @@ import com.example.utente5academy.provafinale.R;
 @SuppressWarnings("deprecation")
 public class CourrierActivity extends TabActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courrier);
+        Intent intent = new Intent(this, ServiceCourrier.class);
+        startService(intent);
         String user = getIntent().getStringExtra("username");
         String tipo = getIntent().getStringExtra("tipo");
         TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
@@ -30,7 +34,7 @@ public class CourrierActivity extends TabActivity {
         spec2.setContent(new Intent(CourrierActivity.this, Tab2.class).putExtra("username", user));
         tabHost.addTab(spec2);
         TabHost.TabSpec spec3 = tabHost.newTabSpec("Pacco");
-        spec3.setIndicator("LOCALIA'");
+        spec3.setIndicator("LUOGO");
         spec3.setContent(new Intent(CourrierActivity.this, Tab3.class).putExtra("username", user));
         tabHost.addTab(spec3);
 

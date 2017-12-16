@@ -38,10 +38,13 @@ public class Tab3 extends FragmentActivity implements OnMapReadyCallback {
     private SupportMapFragment mappa;
     private Geocoder geocoder;
     private List<Address> via = null;
+    private List<Address> via2 = null;
     private Double latitudine = 0.0;
     private Double longitudine = 0.0;
     private Address adress = null;
     private LatLng coordinate = null;
+    private Address adress2 = null;
+    private LatLng coordinate2 = null;
 
 
     @Override
@@ -101,7 +104,13 @@ public class Tab3 extends FragmentActivity implements OnMapReadyCallback {
                                     longitudine = adress.getLongitude();
                                     coordinate = new LatLng(latitudine, longitudine);
                                     googleMap.addMarker(new MarkerOptions().position(coordinate));
-                                    CameraUpdate position = CameraUpdateFactory.newLatLngZoom(coordinate, 6);
+                                    via2 = geocoder.getFromLocationName(json.getString("Deposito"), 1);
+                                    adress2 = via2.get(0);
+                                    latitudine = adress2.getLatitude();
+                                    longitudine = adress2.getLongitude();
+                                    coordinate2 = new LatLng(latitudine, longitudine);
+                                    googleMap.addMarker(new MarkerOptions().position(coordinate2));
+                                    CameraUpdate position = CameraUpdateFactory.newLatLngZoom(coordinate,40);
                                     googleMap.animateCamera(position);
                                     googleMap.moveCamera(position);
                                 } catch (

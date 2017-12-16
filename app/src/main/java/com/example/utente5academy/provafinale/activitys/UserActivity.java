@@ -14,7 +14,6 @@ public class UserActivity extends TabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        this.setTitle("utente");
         String username = getIntent().getStringExtra("username");
         TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
         tabHost.setup();
@@ -23,7 +22,7 @@ public class UserActivity extends TabActivity {
         spec.setContent(new Intent(UserActivity.this, AddPackUser.class));
         tabHost.addTab(spec);
         TabHost.TabSpec spec2 = tabHost.newTabSpec("Lista");
-        spec.setIndicator("Pacchi");
+        spec.setIndicator("Spedizioni");
         spec.setContent(new Intent(UserActivity.this, UserPacks.class));
         tabHost.addTab(spec);
         TabHost.TabSpec spec3 = tabHost.newTabSpec("Stato Spedizione");

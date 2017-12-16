@@ -1,9 +1,11 @@
 package com.example.utente5academy.provafinale.activitys;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class StatoSpedizione extends AppCompatActivity {
+import com.example.utente5academy.provafinale.R;
+
+public class StatoSpedizione extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

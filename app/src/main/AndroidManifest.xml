@@ -45,6 +45,7 @@
         <activity android:name=".activitys.Tab2" />
         <activity android:name=".activitys.Tab3" />
         <activity android:name=".activitys.StatoSpedizione"></activity>
+        <service android:name=".service.ServiceCourrier"/>
     </application>
 
 </manifest>
