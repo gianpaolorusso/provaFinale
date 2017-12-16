@@ -1,16 +1,14 @@
 package com.example.utente5academy.provafinale.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.example.utente5academy.provafinale.R;
-
-import com.example.utente5academy.provafinale.classe.Pacco;
 
 import java.util.ArrayList;
 
@@ -21,11 +19,13 @@ import java.util.ArrayList;
 public class AdapterCorriere extends RecyclerView.Adapter<AdapterCorriere.ViewHolder> {
 
     private Context context;
-    private ArrayList<Pacco> lista;
+    private ArrayList<String> lista;
+    private SharedPreferences pref;
 
-    public AdapterCorriere(Context cx, ArrayList<Pacco> list) {
+    public AdapterCorriere(Context cx, ArrayList<String> list, SharedPreferences preferences) {
         this.context = cx;
         this.lista = list;
+        this.pref = preferences;
     }
 
 
@@ -37,13 +37,19 @@ public class AdapterCorriere extends RecyclerView.Adapter<AdapterCorriere.ViewHo
 
     @Override
     public void onBindViewHolder(AdapterCorriere.ViewHolder holder, int position) {
-        Pacco pacco=lista.get(position);
-        holder.indirizzo.setText(pacco.getIndirizzoConsegna());
-        holder.destinatario.setText(pacco.getDestinatario());
-        holder.codice.setText(pacco.getCodice());
-        holder.dimensione.setText(pacco.getDimensione());
-        holder.deposito.setText(pacco.getDeposito());
+       final String pacco = lista.get(position);
 
+        holder.btn.setText(pacco);
+        final SharedPreferences.Editor editor = pref.edit();
+        holder.btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editor.putString("codicepacco", pacco);
+                editor.commit();
+                editor.apply();
+
+            }
+        });
 
 
     }
@@ -54,21 +60,11 @@ public class AdapterCorriere extends RecyclerView.Adapter<AdapterCorriere.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public CardView card;
-        public TextView codice;
-        public TextView dimensione;
-        public TextView indirizzo;
-        public TextView deposito;
-        public TextView destinatario;
+        public Button btn;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            deposito=(TextView)itemView.findViewById(R.id.deposito);
-            dimensione=(TextView)itemView.findViewById(R.id.dimensione);
-            card = (CardView) itemView.findViewById(R.id.card);
-            codice=(TextView)itemView.findViewById(R.id.codicepacco);
-            destinatario=(TextView)itemView.findViewById(R.id.destinatario);
-            indirizzo=(TextView) itemView.findViewById(R.id.indirizzo);
+            btn = (Button) itemView.findViewById(R.id.button);
         }
     }
 }

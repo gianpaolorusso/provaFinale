@@ -17,24 +17,22 @@ public class CourrierActivity extends TabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courrier);
-        String user=getIntent().getStringExtra("username");
-        String tipo=getIntent().getStringExtra("tipo");
+        String user = getIntent().getStringExtra("username");
+        String tipo = getIntent().getStringExtra("tipo");
         TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
         tabHost.setup();
         TabHost.TabSpec spec = tabHost.newTabSpec("Pacco");
         spec.setIndicator("IN ATTESA");
-        spec.setContent(new Intent(CourrierActivity.this, Tab1.class).putExtra("username",user).putExtra("tipo",tipo));
+        spec.setContent(new Intent(CourrierActivity.this, Tab1.class).putExtra("username", user).putExtra("tipo", tipo));
         tabHost.addTab(spec);
         TabHost.TabSpec spec2 = tabHost.newTabSpec("Pacco");
-        spec2.setIndicator("IN CONSEGNA");
-        spec2.setContent(new Intent(CourrierActivity.this, Tab2.class).putExtra("username",user));
+        spec2.setIndicator("CONSEGNA");
+        spec2.setContent(new Intent(CourrierActivity.this, Tab2.class).putExtra("username", user));
         tabHost.addTab(spec2);
         TabHost.TabSpec spec3 = tabHost.newTabSpec("Pacco");
-        spec3.setIndicator("INFO PACCO");
-        spec3.setContent(new Intent(CourrierActivity.this, Tab3.class).putExtra("username",user));
+        spec3.setIndicator("LOCALIA'");
+        spec3.setContent(new Intent(CourrierActivity.this, Tab3.class).putExtra("username", user));
         tabHost.addTab(spec3);
-
-
 
 
     }

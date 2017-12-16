@@ -6,24 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.utente5academy.provafinale.activitys.Tab2">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rec"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/cod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/destinatario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/indirizzo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/giorno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    </android.support.v7.widget.RecyclerView>
+
 </RelativeLayout>

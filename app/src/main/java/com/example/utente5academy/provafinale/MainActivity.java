@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private TextView registrazion;
     private TextView tTipo;
+    private String tipo = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         editor = preferences.edit();
         String user = preferences.getString("utente", "nessuno");
         String pass = preferences.getString("password", "nessuno");
-       final String tipo = preferences.getString("tipo", "tipo");
+        tipo = preferences.getString("tipo", "tipo");
         registrazion = (TextView) findViewById(R.id.registrazione);
         registrazion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
         bLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ut=sTipoUtente.getSelectedItem().toString();
+                String ut = sTipoUtente.getSelectedItem().toString();
                 if (cbRicorda.isChecked()) {
-                    editor.putString("tipo",ut);
+                    editor.putString("tipo", ut);
                     editor.putString("utente", eUsername.getText().toString());
                     editor.putString("password", ePassword.getText().toString());
                     editor.commit();
@@ -93,38 +94,34 @@ public class MainActivity extends AppCompatActivity {
         });
         if (user.equals("nessuno")) {
 
-
         } else {
-            switch (tipo) {
-                case "Utente":
-                    Intent i = new Intent(MainActivity.this, UserActivity.class);
-                    i.putExtra("username", user);
-                    i.putExtra("tipo", tipo);
-                    PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
-                    try {
-                        pendingIntent.send();
-                    } catch (PendingIntent.CanceledException e) {
-                        e.printStackTrace();
+            tipo = preferences.getString("tipo", "tipo");
+            if (tipo.equals("Utente")) {
+                Intent i = new Intent(MainActivity.this, UserActivity.class);
+                i.putExtra("username", user);
+                i.putExtra("tipo", tipo);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
+                try {
+                    pendingIntent.send();
+                } catch (PendingIntent.CanceledException e) {
+                    e.printStackTrace();
 
-                    };
+                }
+            } else {
+                Intent i = new Intent(MainActivity.this, CourrierActivity.class);
+                i.putExtra("username", user);
+                i.putExtra("tipo", tipo);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
+                try {
+                    pendingIntent.send();
+                } catch (PendingIntent.CanceledException e) {
+                    e.printStackTrace();
 
-                break;
-                case "Corriere":{
-                    i = new Intent(MainActivity.this, CourrierActivity.class);
-                    i.putExtra("username", user);
-                    i.putExtra("tipo", tipo);
-                    pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
-                    try {
-                        pendingIntent.send();
-                    } catch (PendingIntent.CanceledException e) {
-                        e.printStackTrace();
-
-                    }}
-                ;
-                break;
+                }
             }
 
         }
+
     }
 
     public void LogIn(final String username, final String pass, final String tipo) {
@@ -142,39 +139,33 @@ public class MainActivity extends AppCompatActivity {
                 if (jsonObject != null) {
                     try {
                         if (jsonObject.get("Password").equals(pass)) {
-                            switch (tipo) {
-                                case "Utente": {
-                                    Intent i = new Intent(MainActivity.this, UserActivity.class);
-                                    i.putExtra("username", username);
-                                    i.putExtra("tipo", tipo);
-                                    PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
-                                    try {
-                                        pendingIntent.send();
-                                    } catch (PendingIntent.CanceledException e) {
-                                        e.printStackTrace();
+                            if (tipo.equals("Utente")) {
+                                Intent i = new Intent(MainActivity.this, UserActivity.class);
+                                i.putExtra("username", username);
+                                i.putExtra("tipo", tipo);
+                                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
+                                try {
+                                    pendingIntent.send();
+                                } catch (PendingIntent.CanceledException e) {
+                                    e.printStackTrace();
 
-                                    }
                                 }
-                                ;
-                                break;
-                                case "Corriere": {
-                                    Intent i = new Intent(MainActivity.this, CourrierActivity.class);
-                                    i.putExtra("username", username);
-                                    i.putExtra("tipo", tipo);
-                                    PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
-                                    try {
-                                        pendingIntent.send();
-                                    } catch (PendingIntent.CanceledException e) {
-                                        e.printStackTrace();
+                            } else {
+                                Intent i = new Intent(MainActivity.this, CourrierActivity.class);
+                                i.putExtra("username", username);
+                                i.putExtra("tipo", tipo);
+                                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
+                                try {
+                                    pendingIntent.send();
+                                } catch (PendingIntent.CanceledException e) {
+                                    e.printStackTrace();
 
-                                    }
                                 }
-                                ;
-                                break;
                             }
 
-
                         }
+
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
